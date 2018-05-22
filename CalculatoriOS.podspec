@@ -16,7 +16,7 @@ s.author               = "Luis Cruz"
 
 s.platform            = :ios, "11.0"
 
-s.source              = { :git => "https://github.com/iLACB/CalculatoriOS.git", :tag => "s.version.to_s" }
+s.source              = { :git => "https://github.com/iLACB/CalculatoriOS.git", :tag => "1.0.2" }
 
 s.source_files     = "CalculatoriOS", "CalculatoriOS/**/*.{h,m,swift}"
 end
