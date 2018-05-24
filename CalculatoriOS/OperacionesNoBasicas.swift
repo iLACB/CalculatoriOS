@@ -19,11 +19,7 @@ public class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
     public func raizCuadrada(numero: Double){
         if numero >= 0 && !numero.isNaN{
             let resultado = sqrt(numero)
-            if numero == -0{
-                gnControlDeEventos.gnResultWhitObservations(value: resultado, observation: "No existe el algo como -0, cero no tiene signo ", type: .RaizCuadrada)
-            }else{
-                gnControlDeEventos.gnResult(value: resultado, type: .RaizCuadrada)
-            }
+            gnControlDeEventos.gnResult(value: resultado, type: .RaizCuadrada)
         }else{
             let error = indiceDeErrores.toString(.RaizNegativaDeNumNegativo)
             gnControlDeEventos.gnMessageError(error: error() , type: .RaizCuadrada)
@@ -32,7 +28,7 @@ public class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
     
     
     public func seno(numero: Double){
-        if numero >= 0 && !numero.isNaN{
+        if  !numero.isNaN{
             let resultado = sin(numero)
             gnControlDeEventos.gnResult(value: resultado, type: .Seno)
         }else{
@@ -43,7 +39,7 @@ public class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
     }//Fin de la funcion seno
     
     public func coseno(numero: Double){
-        if numero >= 0 && !numero.isNaN{
+        if  !numero.isNaN{
             let resultado = cos(numero)
             gnControlDeEventos.gnResult(value: resultado, type: .Coseno)
         }else{
@@ -53,7 +49,7 @@ public class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
     }//Fin de la funcion coseno
     
     public func tangente(numero: Double){
-        if numero >= 0 && !numero.isNaN{
+        if  !numero.isNaN{
             let resultado = tan(numero)
             gnControlDeEventos.gnResult(value: resultado, type: .Coseno)
         }else{
