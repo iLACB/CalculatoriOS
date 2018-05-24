@@ -35,7 +35,7 @@ public class Calculadora: funcionesErrores, GNControlFunctionProtocol {
     public func division(x: Double, y: Double) -> Double{
         let resultado = x/y
         if y == 0 {
-            gnControlFallos.gnMessageError(error: "Valor no aceptado \(y)", type: .Division)
+            gnControlFallos.gnMessageError(error: "\(y) Es un valor incorrecto para la division", type: .Division)
         }
         else {
             gnControlFallos.gnResult(value: Double(resultado), type: .Division)

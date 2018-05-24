@@ -14,8 +14,11 @@ public class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
     public func raizCuadrada(numero: Double){
         if numero >= 0 && !numero.isNaN{
             let resultado = sqrt(numero)
-            gnControlDeEventos.gnResult(value: resultado, type: .RaizCuadrada)
-            //gnResult(value: resultado, type: .RaizCuadrada)
+            if numero == -0{
+                gnControlDeEventos.gnResultWhitObservations(value: resultado, observation: "No existe el algo como -0, cero no tiene signo", type: .RaizCuadrada)
+            }else{
+                gnControlDeEventos.gnResult(value: resultado, type: .RaizCuadrada)
+            }
         }else{
             //print("El valor ingresado debe ser mayor o igual a cero '0', no se aceptan letras. XD")
             gnControlDeEventos.gnMessageError(error: "Solo se aceptan numeros positivos Rufian", type: .RaizCuadrada)

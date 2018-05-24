@@ -64,6 +64,10 @@ public class funcionesErrores{
         print("Resultado: \(value) & Flujo: \(type)")
     }
     
+    func gnResultWhitObservations(value: Double,observation: String, type: indiceDeResultados) {
+        print("Resultado: \(value), \(observation)Flujo: & \(type)")
+    }
+    
     
 }
 
