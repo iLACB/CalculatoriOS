@@ -7,45 +7,47 @@
 //
 
 import Foundation
-public class OperacionesNoBasicas{
+public class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
+    public override init(){}
+    var gnControlDeEventos = funcionesErrores()
     
-    public init(){}
-    
-    public func raizCuadrada(numero: Double)->Double{
-         if numero >= 0 && !numero.isNaN{
-            return sqrt(numero)
-         }else{
-            print("El valor ingresado debe ser mayor o igual a cero '0', no se aceptan letras. XD")
+    public func raizCuadrada(numero: Double){
+        if numero >= 0 && !numero.isNaN{
+            let resultado = sqrt(numero)
+            gnControlDeEventos.gnResult(value: resultado, type: .RaizCuadrada)
+            //gnResult(value: resultado, type: .RaizCuadrada)
+        }else{
+            //print("El valor ingresado debe ser mayor o igual a cero '0', no se aceptan letras. XD")
+            gnControlDeEventos.gnMessageError(error: "Solo se aceptan numeros positivos Rufian", type: .RaizCuadrada)
         }
-        return 0
     }//Fin de la funcion raizCuadrada
     
     
-    public func seno(numero: Double)->Double{
+    public func seno(numero: Double){
         if numero >= 0 && !numero.isNaN{
-            return sin(numero)
+            let resultado = sin(numero)
+            gnControlDeEventos.gnResult(value: resultado, type: .Seno)
         }else{
-            print("Solo se aceptan numeros. :)")
-            return 0
+            gnControlDeEventos.gnMessageError(error: "Solo puedes usar numeros ", type: .Seno)
         }
+        
     }//Fin de la funcion seno
     
-    public func coseno(numero: Double)->Double{
+    public func coseno(numero: Double){
         if numero >= 0 && !numero.isNaN{
-            return cos(numero)
+            let resultado = cos(numero)
+            gnControlDeEventos.gnResult(value: resultado, type: .Coseno)
         }else{
-            print("Solo se aceptan numeros. :O")
-            return 0
+            gnControlDeEventos.gnMessageError(error: "Solo puedes usar numeros", type: .Coseno)
         }
     }//Fin de la funcion coseno
     
-    public func tangente(numero: Double)->Double{
+    public func tangente(numero: Double){
         if numero >= 0 && !numero.isNaN{
-            return tan(numero)
+            let resultado = tan(numero)
+            gnControlDeEventos.gnResult(value: resultado, type: .Coseno)
         }else{
-            print("Solo se aceptan numeros. :D")
-            return 0
+            gnControlDeEventos.gnMessageError(error: "Solo puedes usar numeros ", type: .Coseno)
         }
     }//Fin de la funcion tangente
-    
 }//Fin de la clase OperacionesNoBasicas
