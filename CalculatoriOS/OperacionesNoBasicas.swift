@@ -7,8 +7,8 @@
 //
 
 import Foundation
-class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
-    //public init(){}
+public class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
+    public override init(){}
     var gnControlDeEventos = funcionesErrores()
     
     public func raizCuadrada(numero: Double){

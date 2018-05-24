@@ -12,10 +12,14 @@ protocol GNControlFunctionProtocol{
 }
 
 enum indiceDeResultados: Int {
-    case RaizCuadrada = 0
-    case Seno         = 1
-    case Coseno       = 2
-    case Tangente     = 3
+    case RaizCuadrada   = 0
+    case Seno           = 1
+    case Coseno         = 2
+    case Tangente       = 3
+    case Suma           = 4
+    case Resta          = 5
+    case Multiplicacion = 6
+    case Division       = 7
     
     func toString() -> String {
         var tipoOperacion = ""
@@ -33,12 +37,24 @@ enum indiceDeResultados: Int {
         case .Tangente:
             tipoOperacion = "Tangente"
             break
+        case .Suma:
+            tipoOperacion = "Suma"
+            break
+        case .Resta:
+            tipoOperacion = "Resta"
+            break
+        case .Multiplicacion:
+            tipoOperacion = "Multiplicacion"
+            break
+        case .Division:
+            tipoOperacion = "Division"
+            break
         }
         return tipoOperacion
     }
 }
 
-class funcionesErrores{
+public class funcionesErrores{
     //--Funciones de Control--/
     func gnMessageError(error: String, type: indiceDeResultados) {
         print("Error: \(error) & Flujo: \(type)")
