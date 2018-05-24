@@ -54,6 +54,30 @@ enum indiceDeResultados: Int {
     }
 }
 
+enum indiceDeErrores: Int {
+    case RaizNegativaDeNumNegativo = 0
+    case DivisionEntreCero         = 1
+    case NoOperable                = 2
+    
+    
+    func toString() -> String {
+        var tipoOperacion = ""
+        
+        switch self {
+        case .RaizNegativaDeNumNegativo:
+            tipoOperacion = "No existen Raices Negativas para operaciones Reales"
+            break
+        case .DivisionEntreCero:
+            tipoOperacion = "Un numero dividido entre cero, no esta definido"
+            break
+        case .NoOperable:
+            tipoOperacion = "Solo se aceptan numeros"
+            break
+        }
+        return tipoOperacion
+    }
+}
+
 public class funcionesErrores{
     //--Funciones de Control--/
     func gnMessageError(error: String, type: indiceDeResultados) {
