@@ -8,8 +8,11 @@
 
 import Foundation
 
-public class Calculadora: NSObject{
+public class Calculadora: NSObject {
+    
     public override init(){}
+    var gnDelegate: GNCalculadoraDelegate?
+    
     public func suma(x: Double, y: Double) -> Double{
         let resultado = x + y
         print("El resultado de la suma es: \(resultado)")
@@ -29,9 +32,19 @@ public class Calculadora: NSObject{
     }
     
     public func division(x: Double, y: Double) -> Double{
-        let resultado = x/y
-        print("El resultado de la división es: \(resultado)")
-        return resultado
+//        let resultado = x/y
+//        print("El resultado de la división es: \(resultado)")
+//        return resultado
+        if y == 0 {
+            self.gnDelegate?.gnMessageError(error: "Valor no aceptado \(y)", type: .DIVISION)
+        }
+        else {
+            self.gnDelegate?.gnResult(value: Double(x/y), type: .DIVISION)
+        }
+        
+        return x/y
     }
+    
+    
     
 }

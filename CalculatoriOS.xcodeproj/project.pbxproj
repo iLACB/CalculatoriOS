@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02F896120B71E60000EBAEE /* FallosOperaciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02F896020B71E60000EBAEE /* FallosOperaciones.swift */; };
 		C038626520B4CF6E00567A79 /* CalculatoriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C038625B20B4CF6E00567A79 /* CalculatoriOS.framework */; };
 		C038626A20B4CF6E00567A79 /* CalculatoriOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C038626920B4CF6E00567A79 /* CalculatoriOSTests.swift */; };
 		C038626C20B4CF6E00567A79 /* CalculatoriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C038625E20B4CF6E00567A79 /* CalculatoriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C02F896020B71E60000EBAEE /* FallosOperaciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallosOperaciones.swift; sourceTree = "<group>"; };
 		C038625B20B4CF6E00567A79 /* CalculatoriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CalculatoriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C038625E20B4CF6E00567A79 /* CalculatoriOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatoriOS.h; sourceTree = "<group>"; };
 		C038625F20B4CF6E00567A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				C038627520B4CF8400567A79 /* Calculadora.swift */,
 				C038627720B4CF8B00567A79 /* OperacionesNoBasicas.swift */,
 				C038625F20B4CF6E00567A79 /* Info.plist */,
+				C02F896020B71E60000EBAEE /* FallosOperaciones.swift */,
 			);
 			path = CalculatoriOS;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C038627820B4CF8B00567A79 /* OperacionesNoBasicas.swift in Sources */,
+				C02F896120B71E60000EBAEE /* FallosOperaciones.swift in Sources */,
 				C038627620B4CF8500567A79 /* Calculadora.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
