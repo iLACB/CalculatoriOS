@@ -15,20 +15,32 @@ public class Calculadora: funcionesErrores, GNControlFunctionProtocol {
     var gnControlFallos = funcionesErrores()
     
     public func suma(x: Double, y: Double) -> Double{
-        let resultado = x + y
-        print("El resultado de la suma es: \(resultado)")
+        let resultado = x+y
+        if !x.isNaN && !y.isNaN{
+            gnControlFallos.gnResult(value: resultado, type: .Suma)
+        } else{
+            gnControlFallos.gnMessageError(error: "Solo se aceptan numeros", type: .Suma)
+        }
         return resultado
     }
     
     public func resta(x: Double, y: Double) -> Double{
         let resultado = x - y
-        print("El resultado de la resta es: \(resultado)")
+        if !x.isNaN && !y.isNaN{
+            gnControlFallos.gnResult(value: resultado, type: .Resta)
+        } else {
+            gnMessageError(error: "Solo se aceptan numeros", type: .Resta)
+        }
         return resultado
     }
     
     public func multiplicacion(x: Double, y: Double) -> Double{
         let resultado = x * y
-        print("El resultado de la multiplicación es: \(resultado)")
+        if !x.isNaN && !y.isNaN{
+            gnControlFallos.gnResult(value: resultado, type: .Multiplicacion)
+        } else {
+            gnControlFallos.gnMessageError(error: "Solo se aceptan numeros", type: .Multiplicacion)
+        }
         return resultado
     }
     
