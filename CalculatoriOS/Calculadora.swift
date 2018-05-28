@@ -8,54 +8,58 @@
 
 import Foundation
 
-public class Calculadora: funcionesErrores, GNControlFunctionProtocol {
+public class Calculadora {
     
-    public override init(){}
+    public init() {}
     
-    var gnControlFallos = funcionesErrores()
+    public var protoDelegate: GNControlFunctionProtocol?
     
-    public func suma(x: Double, y: Double) -> Double{
+    public func suma(x: Double, y: Double){
         let resultado = x+y
         if !x.isNaN && !y.isNaN{
-            gnControlFallos.gnResult(value: resultado, type: .Suma)
+            if self.protoDelegate == nil{
+                print("Debe asignar una valor a la variable 'protoDelegate'")
+            }
+            self.protoDelegate?.gnResult(value: resultado, type: .Suma)
         } else{
-            gnControlFallos.gnMessageError(error: "Solo se aceptan numeros", type: .Suma)
+            self.protoDelegate?.gnMessageError(error: "Solo se aceptan numeros", type: .Suma)
         }
-        return resultado
     }
     
-    public func resta(x: Double, y: Double) -> Double{
+    public func resta(x: Double, y: Double){
         let resultado = x - y
         if !x.isNaN && !y.isNaN{
-            gnControlFallos.gnResult(value: resultado, type: .Resta)
+            if self.protoDelegate == nil{
+                print("Debe asignar una valor a la variable 'protoDelegate'")
+            }
+            self.protoDelegate?.gnResult(value: resultado, type: .Resta)
         } else {
-            gnMessageError(error: "Solo se aceptan numeros", type: .Resta)
+            self.protoDelegate?.gnMessageError(error: "Solo se aceptan numeros", type: .Resta)
         }
-        return resultado
     }
     
-    public func multiplicacion(x: Double, y: Double) -> Double{
+    public func multiplicacion(x: Double, y: Double){
         let resultado = x * y
         if !x.isNaN && !y.isNaN{
-            gnControlFallos.gnResult(value: resultado, type: .Multiplicacion)
+            if self.protoDelegate == nil{
+                print("Debe asignar una valor a la variable 'protoDelegate'")
+            }
+            self.protoDelegate?.gnResult(value: resultado, type: .Multiplicacion)
         } else {
-            gnControlFallos.gnMessageError(error: "Solo se aceptan numeros", type: .Multiplicacion)
+            self.protoDelegate?.gnMessageError(error: "Solo se aceptan numeros", type: .Multiplicacion)
         }
-        return resultado
     }
     
-    public func division(x: Double, y: Double) -> Double{
+    public func division(x: Double, y: Double){
         let resultado = x/y
         if y == 0 {
-            gnControlFallos.gnMessageError(error: "\(y) Es un valor incorrecto para la division", type: .Division)
+            if self.protoDelegate == nil{
+                print("Debe asignar una valor a la variable 'protoDelegate'")
+            }
+            self.protoDelegate?.gnMessageError(error: "\(Int(y)) Es un valor incorrecto para la division", type: .Division)
         }
         else {
-            gnControlFallos.gnResult(value: Double(resultado), type: .Division)
+            self.protoDelegate?.gnResult(value: Double(resultado), type: .Division)
         }
-        
-        return resultado
     }
-    
-    
-    
 }

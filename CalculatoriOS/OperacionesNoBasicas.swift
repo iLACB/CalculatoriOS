@@ -7,54 +7,55 @@
 //
 
 import UIKit
-
 import Foundation
 
-public class OperacionesNoBasicas: funcionesErrores, GNControlFunctionProtocol{
+public class OperacionesNoBasicas{
+    public init(){}
     
-    
-    public override init(){}
-    var gnControlDeEventos = funcionesErrores()
+    public var delegate: GNControlFunctionProtocol?
     
     public func raizCuadrada(numero: Double){
         if numero >= 0 && !numero.isNaN{
+            if self.delegate == nil{
+                print("Señor doctor profesor programador agregue valor a la variable delegate")
+            }
             let resultado = sqrt(numero)
-            gnControlDeEventos.gnResult(value: resultado, type: .RaizCuadrada)
+            self.delegate?.gnResult(value: resultado, type: indiceDeResultados.RaizCuadrada)
         }else{
-            let error = indiceDeErrores.toString(.RaizNegativaDeNumNegativo)
-            gnControlDeEventos.gnMessageError(error: error() , type: .RaizCuadrada)
+            self.delegate?.gnMessageError(error: "Valio mares todo: no se puede obtener Raiz de un numero negativo", type: indiceDeResultados.RaizCuadrada)
         }
     }//Fin de la funcion raizCuadrada
     
-    
-    public func seno(numero: Double){
-        if  !numero.isNaN{
-            let resultado = sin(numero)
-            gnControlDeEventos.gnResult(value: resultado, type: .Seno)
-        }else{
-            let error = indiceDeErrores.toString(.NoOperable)
-            gnControlDeEventos.gnMessageError(error: error(), type: .Seno)
-        }
-        
-    }//Fin de la funcion seno
-    
     public func coseno(numero: Double){
-        if  !numero.isNaN{
-            let resultado = cos(numero)
-            gnControlDeEventos.gnResult(value: resultado, type: .Coseno)
-        }else{
-            let error = indiceDeErrores.toString(.NoOperable)
-            gnControlDeEventos.gnMessageError(error: error(), type: .Coseno)
+        if !numero.isNaN{
+            if self.delegate == nil{
+                print("Señor doctor profesor programador agregue valor a la variable delegate")
+            }
+            let resultado = sin(numero)
+            self.delegate?.gnResult(value: resultado, type: indiceDeResultados.RaizCuadrada)
         }
     }//Fin de la funcion coseno
     
-    public func tangente(numero: Double){
-        if  !numero.isNaN{
-            let resultado = tan(numero)
-            gnControlDeEventos.gnResult(value: resultado, type: .Coseno)
-        }else{
-            let error = indiceDeErrores.toString(.NoOperable)
-            gnControlDeEventos.gnMessageError(error: error() , type: .Coseno)
+    public func seno(numero: Double){
+        if !numero.isNaN{
+            if self.delegate == nil{
+                print("Señor doctor profesor programador agregue valor a la variable delegate")
+            }
+            let resultado = cos(numero)
+            self.delegate?.gnResult(value: resultado, type: indiceDeResultados.RaizCuadrada)
         }
-    }//Fin de la funcion tangente
+    }//Fin de la funcion seno
+    
+    public func tangente(numero: Double){
+        if !numero.isNaN{
+            if self.delegate == nil{
+                print("Señor doctor profesor programador agregue valor a la variable delegate")
+            }
+            let resultado = tan(numero)
+            self.delegate?.gnResult(value: resultado, type: indiceDeResultados.RaizCuadrada)
+        }
+    }//Fin de la funcion seno
 }//Fin de la clase OperacionesNoBasicas
+
+
+

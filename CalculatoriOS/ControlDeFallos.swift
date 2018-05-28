@@ -6,12 +6,12 @@
 //  Copyright © 2018 Lex. All rights reserved.
 //
 
-protocol GNControlFunctionProtocol{
+public protocol GNControlFunctionProtocol{
     func gnMessageError(error: String, type: indiceDeResultados)
     func gnResult(value: Double, type: indiceDeResultados)
 }
 
-enum indiceDeResultados: Int {
+public enum indiceDeResultados: Int {
     case RaizCuadrada   = 0
     case Seno           = 1
     case Coseno         = 2
@@ -54,7 +54,7 @@ enum indiceDeResultados: Int {
     }
 }
 
-enum indiceDeErrores: Int {
+public enum indiceDeErrores: Int {
     case RaizNegativaDeNumNegativo = 0
     case DivisionEntreCero         = 1
     case NoOperable                = 2
@@ -77,24 +77,3 @@ enum indiceDeErrores: Int {
         return tipoOperacion
     }
 }
-
-public class funcionesErrores{
-    //--Funciones de Control--/
-    func gnMessageError(error: String, type: indiceDeResultados) {
-        print("Error: \(error) & Flujo: \(type)")
-    }
-    
-    func gnResult(value: Double, type: indiceDeResultados) {
-        print("Resultado: \(value) & Flujo: \(type)")
-    }
-    
-    func gnResultWhitObservations(value: Double,observation: String, type: indiceDeResultados) {
-        print("Resultado: \(value), \(observation)Flujo: & \(type)")
-    }
-    
-    
-}
-
-
-
-
