@@ -13,6 +13,7 @@
 		C038626C20B4CF6E00567A79 /* CalculatoriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C038625E20B4CF6E00567A79 /* CalculatoriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C038627620B4CF8500567A79 /* Calculadora.swift in Sources */ = {isa = PBXBuildFile; fileRef = C038627520B4CF8400567A79 /* Calculadora.swift */; };
 		C038627820B4CF8B00567A79 /* OperacionesNoBasicas.swift in Sources */ = {isa = PBXBuildFile; fileRef = C038627720B4CF8B00567A79 /* OperacionesNoBasicas.swift */; };
+		C0603BAC20C891E7003168A1 /* Servicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0603BAB20C891E6003168A1 /* Servicio.swift */; };
 		C07E2C2D20C1EDCD007FF38C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E2C2C20C1EDCD007FF38C /* Service.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		C038626B20B4CF6E00567A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C038627520B4CF8400567A79 /* Calculadora.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculadora.swift; sourceTree = "<group>"; };
 		C038627720B4CF8B00567A79 /* OperacionesNoBasicas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperacionesNoBasicas.swift; sourceTree = "<group>"; };
+		C0603BAB20C891E6003168A1 /* Servicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servicio.swift; sourceTree = "<group>"; };
 		C07E2C2C20C1EDCD007FF38C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				C02F896220B7283F000EBAEE /* ControlDeFallos.swift */,
 				C038625F20B4CF6E00567A79 /* Info.plist */,
 				C07E2C2C20C1EDCD007FF38C /* Service.swift */,
+				C0603BAB20C891E6003168A1 /* Servicio.swift */,
 			);
 			path = CalculatoriOS;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C038627820B4CF8B00567A79 /* OperacionesNoBasicas.swift in Sources */,
+				C0603BAC20C891E7003168A1 /* Servicio.swift in Sources */,
 				C07E2C2D20C1EDCD007FF38C /* Service.swift in Sources */,
 				C038627620B4CF8500567A79 /* Calculadora.swift in Sources */,
 				C02F896320B7283F000EBAEE /* ControlDeFallos.swift in Sources */,
