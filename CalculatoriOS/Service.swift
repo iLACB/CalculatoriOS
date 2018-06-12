@@ -8,58 +8,38 @@
 
 import Foundation
 
-import Foundation
-
 public class Service{
     
     public init() {}
     
-    public func get(url: String) {
-        
-        guard let url = URL(string: url) else {return}
-        
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            
-            if let data = data {
-                print(data)
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                }catch{
-                    print(error)
-                }
-            }
-        }.resume() 
-    }
+    public var protoService: GNService?
     
-    public func post(params: Dictionary <String, String>, url: String){
-        let parameters = [params]
+    public func get(url: String, error: String) {
         
+        if self.protoService == nil{
+            print("Debe asignar una valor a la variable 'protoService'")
+        }
         
-        guard let url = URL(string: url) else {return}
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {return}
-        request.httpBody = httpBody
+        guard let url = URL(string: url) else {
+            self.protoService?.GNError(error: error)
+            return
+        }
+        
         let session = URLSession.shared
-        session.dataTask(with: request) {(data, response, error) in
-            if let response = response {
-                print(response)
-            }
+        session.dataTask(with: url) {(data, response, error) in
             
-            if let data = data {
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                }catch{
-                    print(error)
+            do{
+                let countries = try JSONDecoder().decode([Country].self, from: data!)
+                
+                for country in countries{
+                    self.protoService?.GNName(name: country.name!)
+                    self.protoService?.GNCapital(capital: country.capital!)
+                    self.protoService?.GNRegion(region: country.region!)
                 }
+                
+            }catch{
+                self.protoService?.GNError(error: error as! String)
             }
-        }.resume()
+            }.resume()
     }
 }
